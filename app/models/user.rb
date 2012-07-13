@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :image_url
   # attr_accessible :title, :body
 
   validates :email, :format => { :with => /@modcloth.com$/ }
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     if user = User.where(email: data["email"]).first
       user
     else
-      User.create!(email: data["email"], name: data["name"], password: Devise.friendly_token[0,20])
+      User.create!(email: data["email"], name: data["name"], password: Devise.friendly_token[0,20], image_url: data["image"])
     end
   end
 

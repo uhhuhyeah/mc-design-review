@@ -206,10 +206,10 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  require 'openid/store/filesystem'
-  config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), 
-    :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', 
-    :require => 'omniauth-openid' 
+  #require 'openid/store/filesystem'
+  #config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), 
+  #  :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', 
+  #  :require => 'omniauth-openid' 
   config.omniauth :yammer, ENV['YAMMER_KEY'], ENV['YAMMER_SECRET']
   
   # ==> Warden configuration

@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  skip_before_filter :verify_authenticuty_token, :only => [:google, :yammer]
+  skip_before_filter :verify_authenticity_token, :only => [:google, :yammer]
 
   def yammer
      @user = User.find_for_oauth(request.env['omniauth.auth'], current_user)
