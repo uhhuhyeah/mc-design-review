@@ -210,6 +210,7 @@ Devise.setup do |config|
   config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), 
     :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', 
     :require => 'omniauth-openid' 
+  config.omniauth :yammer, ENV['YAMMER_KEY'], ENV['YAMMER_SECRET']
   
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
