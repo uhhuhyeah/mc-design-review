@@ -13,6 +13,7 @@ gem "rspec-rails", ">= 2.11.0", :group => [:development, :test]
 gem "factory_girl_rails", ">= 3.5.0", :group => [:development, :test]
 gem "email_spec", ">= 1.2.1", :group => :test
 gem "devise", ">= 2.1.2"
+gem 'omniauth-openid'
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.1.0"
 gem "bootstrap-sass", ">= 2.0.4.0"
