@@ -1,0 +1,34 @@
+.talk
+  .left
+    = render partial: 'profile_box', locals: { profile: talk.user }
+    = render partial: 'profile_box', locals: { profile: talk.co_presenter } if talk.co_presenter
+  .right
+    %h3.title
+      = talk.title
+    .details.right-text
+      - if talk.date
+        = date_format(talk.date)
+      - else
+        'TBC'
+    .details
+      = talk.description
+    .details
+      %dl
+        %dt Who should attend?
+        %dd 
+          = talk.attend
+      
+        %dt What can we expect to get from this talk?
+        %dd 
+          = talk.expect
+
+        %dt What should we do to prepare for this talk?
+        %dd 
+          = talk.prepare
+    - if current_user == talk.user
+      .details.right-text
+        = link_to 'Edit', edit_talk_path(talk)
+        |
+        = link_to 'Destroy', talk, :confirm => 'Are you sure?', :method => :delete
+
+

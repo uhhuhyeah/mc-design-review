@@ -1,0 +1,23 @@
+= simple_form_for(@talk) do |f|
+  = f.error_notification
+
+  .form-inputs
+    %p
+      = f.input :title, length: 50
+    %p
+      = f.association :co_presenter, label: 'Co-Presenter (if any)'
+    %p
+      = f.input :date, collection: upcoming_thursdays
+    %p
+      = f.input :length, label: 'Length (Minutes)'
+    %p
+      = f.input :description, label: 'Please tell us briefly what you`re presenting on.'
+    %p  
+      = f.input :attend, label: 'Who should attend?'
+    %p
+      = f.input :prepare, label: 'What should attendees do to prepare for your talk?', placeholder: 'N/A'
+    %p
+      = f.input :expect, label: 'Tell us what can we expect to get from this talk.'
+ 
+  .form-actions
+    = f.button :submit

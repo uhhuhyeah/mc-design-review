@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713044512) do
+ActiveRecord::Schema.define(:version => 20120713153630) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(:version => 20120713044512) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "talks", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.integer  "co_presenter_id"
+    t.date     "date"
+    t.text     "description"
+    t.text     "attend"
+    t.text     "prepare"
+    t.text     "expect"
+    t.integer  "length"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "talks", ["date"], :name => "index_talks_on_date"
+  add_index "talks", ["user_id"], :name => "index_talks_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
