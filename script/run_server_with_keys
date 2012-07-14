@@ -1,0 +1,5 @@
+#! /bin/bash
+
+./script/export_env_keys
+bundle exec rails server thin
+

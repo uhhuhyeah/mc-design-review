@@ -73,3 +73,5 @@ db/*.sqlite3
 
 # vim artifacts
 **.swp
+
+script/export_env_keys
