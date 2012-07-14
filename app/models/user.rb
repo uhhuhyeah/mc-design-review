@@ -14,9 +14,10 @@ class User < ActiveRecord::Base
 
   validates :email, :format => { :with => /@modcloth.com$/ }
 
-  def self.find_for_oauth(access_token, signed_in_request=nil)
-    data = access_token.info
-    puts "data #{data}"
+  has_many :talks
+
+  def self.find_for_oauth(auth_hash, signed_in_request=nil)
+    data = auth_hash.info
     if user = User.where(email: data["email"]).first
       user
     else
@@ -24,13 +25,20 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.find_for_open_id(access_token, signed_in_request=nil)
-    data = access_token.info
-    puts "data #{data}"
+  def self.find_for_open_id(auth_hash, signed_in_request=nil)
+    data = auth_hash.info
     if user = User.where(:email => data["email"]).first
       user
     else
       User.create!(email: data["email"], name: data["name"], password: Devise.friendly_token[0,20])
+    end
+  end
+
+  def self.find_for_developer(auth_hash, signed_in_request)
+    where(auth_hash.slice(:email)).first_or_create do |user|
+      user.name = auth_hash.info.name
+      user.email = auth_hash.email
+      user.password = Devise.friendly_token[0,20]
     end
   end
 
