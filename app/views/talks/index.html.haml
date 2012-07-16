@@ -1,4 +1,9 @@
 %p.right
   = link_to 'Submit a Talk', new_talk_path, class: 'btn btn-primary btn-large'
 
+- if params[:scope] && params[:scope] == 'all'
+  %h1 All talks
+- else
+  %h1 Recent talks
+
 = render @talks

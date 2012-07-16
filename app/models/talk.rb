@@ -8,4 +8,6 @@ class Talk < ActiveRecord::Base
   validates :description, presence: true
   validates :attend, presence: true
   validates :expect, presence: true
+
+  scope :recent, Proc.new { where('date >= ? AND date <= ?', 1.week.ago.to_date, 3.weeks.from_now.to_date).group('date,id') }
 end

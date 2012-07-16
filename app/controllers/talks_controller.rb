@@ -1,19 +1,15 @@
 class TalksController < ApplicationController
   before_filter :authenticate_user!
+  respond_to :html, :json
 
-  # GET /talks
-  # GET /talks.json
   def index
-    @talks = Talk.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @talks }
+    @talks = if params[:scope] == 'all'
+      Talk.all
+    else
+      Talk.recent
     end
   end
 
-  # GET /talks/1
-  # GET /talks/1.json
   def show
     @talk = Talk.find(params[:id])
 
