@@ -1,6 +1,6 @@
 .talk
   .left
-    = render partial: 'profile_box', locals: { profile: talk.user }
+    = render partial: 'profile_box', locals: { profile: talk.presenter }
     = render partial: 'profile_box', locals: { profile: talk.co_presenter } if talk.co_presenter
   .right
     %h3.title
@@ -25,10 +25,22 @@
         %dt What should we do to prepare for this talk?
         %dd 
           = talk.prepare
-    - if current_user == talk.user
+
+    .details.attendees
+      = pluralize(talk.attendees.count, 'Person') rescue "1 Person" # TODO - why doesn't it find pluralize in ActionView::Helpers::TextView? 
+      will be attending
+      - if current_user.is_attending?(talk)
+        = link_to "I won't be attending"
+      - elsif current_user != talk.presenter 
+        = link_to "I plan on attending"
+      = render partial: 'attendee', collection: talk.attendees
+
+    - if current_user == talk.presenter
       .details.right-text
         = link_to 'Edit', edit_talk_path(talk)
         |
         = link_to 'Destroy', talk, :confirm => 'Are you sure?', :method => :delete
+
+
 
 

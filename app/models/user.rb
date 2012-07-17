@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
 
   has_many :talks
 
+  def is_attending?(talk)
+    talk.attendees.include?(self)
+  end
+
   def self.find_for_oauth(auth_hash, signed_in_request=nil)
     data = auth_hash.info
     if user = User.where(email: data["email"]).first

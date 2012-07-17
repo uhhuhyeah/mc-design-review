@@ -1,6 +1,9 @@
 class Talk < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :presenter, class_name: 'User', foreign_key: :user_id
   belongs_to :co_presenter, :class_name => 'User'
+  has_many :participants
+  has_many :attendees, through: :participants
+
   attr_accessible :attend, :co_presenter_id, :date, :description, :expect, :length, :prepare, :title, :user_id
 
   validates :user_id, presence: true
