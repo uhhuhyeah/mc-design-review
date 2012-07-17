@@ -27,7 +27,7 @@
           = talk.prepare
 
     .details.attendees
-      = pluralize(talk.attendees.count, 'Person') rescue "1 Person" # TODO - why doesn't it find pluralize in ActionView::Helpers::TextView? 
+      = pluralize(talk.attendees.count, 'Person') 
       will be attending
       - if current_user.is_attending?(talk)
         = link_to "I won't be attending"

@@ -9,4 +9,10 @@ module TalksHelper
     end
     array_for_options
   end
+
+  # File actionpack/lib/action_view/helpers/text_helper.rb, line 198
+  def pluralize(count, singular, plural = nil)
+    "#{count || 0} " + (count == 1 ? singular : (plural || singular.pluralize))
+  end
+
 end

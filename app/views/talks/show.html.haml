@@ -1,33 +1,3 @@
-%p#notice= notice
+= render @talk
 
-%p
-  %b Title:
-  = @talk.title
-%p
-  %b User:
-  = @talk.user
-%p
-  %b Co presenter ids:
-  = @talk.co_presenter_ids
-%p
-  %b Date:
-  = @talk.date
-%p
-  %b Description:
-  = @talk.description
-%p
-  %b Attend:
-  = @talk.attend
-%p
-  %b Prepare:
-  = @talk.prepare
-%p
-  %b Expect:
-  = @talk.expect
-%p
-  %b Length:
-  = @talk.length
-
-= link_to 'Edit', edit_talk_path(@talk)
-\|
 = link_to 'Back', talks_path

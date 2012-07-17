@@ -6,7 +6,12 @@
 
   = render 'pagination_links'
 
-  = render @talks
+  - @talks.group_by(&:date).each do |date, talks|
+    %h1
+      = pluralize(talks.count, 'Talk')
+      for
+      = date_format date
+    = render talks
 
   = render 'pagination_links'
  
