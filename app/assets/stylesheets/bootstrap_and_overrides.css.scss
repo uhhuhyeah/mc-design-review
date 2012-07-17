@@ -4,6 +4,17 @@ $iconWhiteSpritePath: asset-url('glyphicons-halflings-white.png', image);
 @import "bootstrap";
 body { padding-top: 60px; }
 input, textarea { width: auto; }
+.form-horizontal {
+  .control-group {
+    label {
+      width: 15%;
+      margin-right: 2%;
+    }
+  }
+  input, textarea, select {
+    width: 40%;
+  }
+}
 @import "bootstrap-responsive";
 #container-fluid {
   max-width:960px; 

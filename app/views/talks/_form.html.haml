@@ -1,23 +1,27 @@
-= simple_form_for(@talk) do |f|
+= simple_form_for(@talk, html: { class: 'form-horizontal' } ) do |f|
   = f.error_notification
 
   .form-inputs
-    %p
-      = f.input :title, length: 50
-    %p
-      = f.association :co_presenter, label: 'Co-Presenter (if any)'
-    %p
-      = f.input :date, collection: upcoming_thursdays
-    %p
-      = f.input :length, label: 'Length (Minutes)'
-    %p
-      = f.input :description, label: 'Please tell us briefly what you`re presenting on.'
-    %p  
-      = f.input :attend, label: 'Who should attend?'
-    %p
-      = f.input :prepare, label: 'What should attendees do to prepare for your talk?', placeholder: 'N/A'
-    %p
-      = f.input :expect, label: 'Tell us what can we expect to get from this talk.'
+    %fieldset
+      %legend Talk
+      %p
+        = f.input :title, length: 50
+      %p
+        = f.association :co_presenter, label: 'Co-Presenter (if any)'
+      %p
+        = f.input :date, collection: upcoming_thursdays
+      %p
+        = f.input :length, label: 'Length (Minutes)'
+      %p
+        = f.input :description, label: 'Please tell us briefly what you`re presenting on.', input_html: { rows: 10 }
+
+    %fieldset
+      %legend Attendees
+      %p  
+        = f.input :attend, label: 'Who should attend?', input_html: { rows: 10 }
+      %p
+        = f.input :prepare, label: 'What should attendees do to prepare for your talk?', placeholder: 'N/A', input_html: { rows: 10 }
+      %p
+        = f.input :expect, label: 'What can attendees expect to get from this talk?', input_html: { rows: 10 }
  
-  .form-actions
-    = f.button :submit
+  = f.button :submit, class: 'btn btn-primary', style: 'width:104px'
