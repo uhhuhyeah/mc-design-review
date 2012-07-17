@@ -4,22 +4,12 @@
   - else
     %h1 Recent Talks
 
-  - if params[:scope] && params[:scope] == 'all'
-    = link_to 'See Recent Talks', talks_path
-    = will_paginate @talks 
-  - else
-    = link_to 'See All Talks', talks_path(scope: :all)
+  = render 'pagination_links'
 
   = render @talks
 
-  - if params[:scope] && params[:scope] == 'all'
-    %p
-      = link_to 'See Recent Talks', talks_path 
-    = will_paginate @talks 
-  - else
-    %p
-      = link_to 'See All Talks', talks_path(scope: :all)
-
+  = render 'pagination_links'
+ 
 .span4
   %p
     = link_to 'Submit a Talk', new_talk_path, class: 'btn btn-primary btn-large'
