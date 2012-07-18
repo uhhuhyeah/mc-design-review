@@ -4,7 +4,7 @@ class Talk < ActiveRecord::Base
   has_many :participants
   has_many :attendees, through: :participants
 
-  attr_accessible :attend, :co_presenter_id, :date, :description, :expect, :length, :prepare, :title, :user_id
+  attr_accessible :attend, :co_presenter_id, :date, :description, :expect, :length, :prepare, :title, :user_id, :slides_url
 
   validates :user_id, presence: true
   validates :title, presence: true

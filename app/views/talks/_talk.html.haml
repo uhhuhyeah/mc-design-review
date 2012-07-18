@@ -13,6 +13,10 @@
         %em TBC
     .details
       = talk.description
+      - if talk.slides_url
+        %p
+          = link_to 'View Slides', talk.slides_url
+
     .details
       %dl
         %dt Who should attend?
