@@ -1,6 +1,10 @@
 - if params[:scope] && params[:scope] == 'all'
   = link_to 'See Recent Talks', talks_path, class: 'btn'
+  = link_to 'See Unscheduled Talks', talks_path(scope: :tbc), class: 'btn'
   = will_paginate @talks 
+- elsif params[:scope] && params[:scope] == 'tbc'
+  = link_to 'See Recent Talks', talks_path, class: 'btn'
+  = link_to 'See All Talks', talks_path(scope: :all), class: 'btn'
 - else
   = link_to 'See All Talks', talks_path(scope: :all), class: 'btn'
-
+  = link_to 'See Unscheduled Talks', talks_path(scope: :tbc), class: 'btn'

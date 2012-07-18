@@ -5,6 +5,8 @@ class TalksController < ApplicationController
   def index
     @talks = if params[:scope] == 'all'
       Talk.paginate(:page => params[:page], :per_page => 10)
+    elsif params[:scope] == 'tbc'
+      Talk.tbc
     else
       Talk.recent
     end

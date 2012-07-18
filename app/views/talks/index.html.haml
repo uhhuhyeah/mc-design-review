@@ -1,6 +1,8 @@
 .span8
   - if params[:scope] && params[:scope] == 'all'
     %h1 All Talks
+  - elsif params[:scope] && params[:scope] == 'tbc'
+    %h1 Unscheduled Talks
   - else
     %h1 Recent Talks
 
@@ -9,8 +11,11 @@
   - @talks.group_by(&:date).each do |date, talks|
     %h1
       = pluralize(talks.count, 'Talk')
-      for
-      = date_format date
+      - if date
+        for
+        = date_format date
+      - else
+        still to be scheduled
     = render talks
 
   = render 'pagination_links'
