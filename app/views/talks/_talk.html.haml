@@ -28,17 +28,18 @@
           = talk.prepare
 
     .details.attendees
-      - if talk.attendees.count > 1
+      - if talk.attendees.count > 0
         = pluralize(talk.attendees.count, 'Person') 
         will be attending
-      - else 
-        = link_to "Be the first to sign up", '#', class: 'btn btn-info' unless talk.presenter == current_user
+        - if current_user.is_attending?(talk)
+          = link_to "I won't be attending", attendance_path(1, talk_id: talk.id), data: {method: :delete}
+        - elsif current_user != talk.presenter 
+          = link_to "I plan on attending", attendances_path(talk_id: talk.id), data: {method: :post}
+        = render partial: 'attendee', collection: talk.attendees
 
-      - if current_user.is_attending?(talk)
-        = link_to "I won't be attending"
-      - elsif current_user != talk.presenter 
-        = link_to "I plan on attending"
-      = render partial: 'attendee', collection: talk.attendees
+      - else 
+        = link_to "Be the first to sign up", attendances_path(talk_id: talk.id), class: 'btn btn-info', data: {method: :post} unless talk.presenter == current_user
+
 
     - if current_user == talk.presenter
       .details.right-text
