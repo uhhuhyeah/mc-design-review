@@ -8,11 +8,16 @@ h2 {
   margin: 1em 0;
   padding: 0 0 1em 0;
   border-bottom: #dadada dotted 1px;
+  text-shadow: 0 1px 1px #fff;
 }
 .talk {
   margin-bottom: 1em;
   padding-bottom: 1em;
   border-bottom: #ddd dotted 1px;
+}
+
+h3.title {
+  text-shadow: 0 1px 1px #fff;
 }
 
 .profile-box {
@@ -46,6 +51,7 @@ h2 {
   dt {
     font-size: 150%;
     line-height: 150%;
+    text-shadow: 0 1px 1px #fff;
   }
   .attendee-image {
     width: 4em;
