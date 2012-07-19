@@ -1,7 +1,20 @@
 .talk.clearfix
-  .span6.clearfix
-    = render partial: 'profile_box', locals: { profile: talk.presenter }
-    = render partial: 'profile_box', locals: { profile: talk.co_presenter } if talk.co_presenter
+  .span6
+    .clearfix
+      = render partial: 'profile_box', locals: { profile: talk.presenter }
+      = render partial: 'profile_box', locals: { profile: talk.co_presenter } if talk.co_presenter
+    .details.attendees
+      %dl
+        %dt Attendees
+        %dd
+          - if talk.attendees.count > 0
+            %p{style: 'margin:0;'}
+              = pluralize(talk.attendees.count, 'person') 
+              will be attending
+            .clearfix
+              = render partial: 'attendee', collection: talk.attendees
+          - else
+            %p{style: 'margin:0'} No attendees yet
   .span6
     %h3.title
       = talk.title
@@ -32,19 +45,7 @@
         %dd 
           = talk.prepare
 
-    .details.attendees
-      %dl
-        %dt Attendees
-        %dd
-          - if talk.attendees.count > 0
-            %p{style: 'margin:0;'}
-              = pluralize(talk.attendees.count, 'person') 
-              will be attending
-            .clearfix
-              = render partial: 'attendee', collection: talk.attendees
-          - else
-            %p{style: 'margin:0'} No attendees yet
-
+    .details
       .right-text
         - if current_user.is_attending?(talk)
           = link_to "I won't be attending", attendance_path(1, talk_id: talk.id), data: {method: :delete}, class: 'btn btn-danger'
