@@ -24,7 +24,7 @@ class TalksController < ApplicationController
   # GET /talks/new
   # GET /talks/new.json
   def new
-    @talk = Talk.new(length: 10)
+    @talk = Talk.new(length: 10, prepare: 'N/A')
 
     respond_to do |format|
       format.html # new.html.erb
