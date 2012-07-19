@@ -1,7 +1,7 @@
 DesignReview::Application.routes.draw do
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'talks#index'
   end
   
   root :to => "home#index"

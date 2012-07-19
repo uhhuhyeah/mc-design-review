@@ -12,6 +12,12 @@
  *= require_tree .
 */
 
+.center-text {
+  text-align: center;
+}
+.into-header {
+  text-shadow: 0 1px 1px #000;
+}
 .content {
   background-color: #eee;
   padding: 20px;

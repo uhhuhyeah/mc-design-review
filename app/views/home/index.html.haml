@@ -1,3 +1,7 @@
-%h3 Home
-- @users.each do |user|
-  %p User: #{link_to user.name, user}
+.hero-unit.center-text
+  %h1.intro-header ModCloth Design Reviews
+  %p{style: 'margin: 2em 0' }
+    = link_to 'Sign in with Yammer', new_user_session_path(:yammer), class: 'btn btn-primary btn-large'
+    - unless Rails.env.production?
+      or
+      = link_to 'Sign in with Developer', new_user_session_path(:developer), class: 'btn btn-primary btn-large'
