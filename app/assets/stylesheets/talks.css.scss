@@ -1,3 +1,77 @@
-// Place all the styles related to the Talks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.pagination-links {
+  margin: 1em 0;
+  .btn:first-child {
+    margin-right: 1em;
+  }
+}
+h2 {
+  margin: 1em 0;
+  padding: 0 0 1em 0;
+  border-bottom: #dadada dotted 1px;
+}
+.talk {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: #ddd dotted 1px;
+}
+
+.profile-box {
+  float: left;
+  position: relative;
+  margin-right: 2em;
+  img {
+    width: 8em;
+  }
+  .meta {
+    position: absolute;
+    width: 100%;
+    bottom: -1px;
+    padding: 0.5em 0;
+    background: rgba(255,255,255,.8);
+    p {
+      text-align: center;
+      margin: 0;
+      line-height: 120%;
+    }
+  }
+}
+
+.attendee-image {
+  width: 4em;
+  margin: 0.5em 0;
+  float: left;
+}
+
+.details.date {
+  background: #e18;
+  color: #fff;
+  padding: 0.3em 1em;
+  margin-bottom: 0.5em;
+  font-style: italic;
+
+  background: -moz-linear-gradient(left,  rgba(238,238,238,0) 0%, rgba(158,158,158,1) 56%, rgba(96,96,96,1) 99%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(238,238,238,0)), color-stop(56%,rgba(158,158,158,1)), color-stop(99%,rgba(96,96,96,1)));
+  background: -webkit-linear-gradient(left,  rgba(238,238,238,0) 0%,rgba(158,158,158,1) 56%,rgba(96,96,96,1) 99%);
+  background: -o-linear-gradient(left,  rgba(238,238,238,0) 0%,rgba(158,158,158,1) 56%,rgba(96,96,96,1) 99%);
+  background: -ms-linear-gradient(left,  rgba(238,238,238,0) 0%,rgba(158,158,158,1) 56%,rgba(96,96,96,1) 99%);
+  background: linear-gradient(to right,  rgba(238,238,238,0) 0%,rgba(158,158,158,1) 56%,rgba(96,96,96,1) 99%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00eeeeee', endColorstr='#606060',GradientType=1 );
+
+  width: 66%;
+  &.future {
+    background: -moz-linear-gradient(left,  rgba(238,238,238,0) 0%, rgba(121,207,110,1) 56%, rgba(31,183,11,1) 99%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(238,238,238,0)), color-stop(56%,rgba(121,207,110,1)), color-stop(99%,rgba(31,183,11,1)));
+    background: -webkit-linear-gradient(left,  rgba(238,238,238,0) 0%,rgba(121,207,110,1) 56%,rgba(31,183,11,1) 99%);
+    background: -o-linear-gradient(left,  rgba(238,238,238,0) 0%,rgba(121,207,110,1) 56%,rgba(31,183,11,1) 99%);
+    background: -ms-linear-gradient(left,  rgba(238,238,238,0) 0%,rgba(121,207,110,1) 56%,rgba(31,183,11,1) 99%);
+    background: linear-gradient(to right,  rgba(238,238,238,0) 0%,rgba(121,207,110,1) 56%,rgba(31,183,11,1) 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00eeeeee', endColorstr='#1fb70b',GradientType=1 );
+
+  }
+}
+
+.details {
+  dd {
+    margin-bottom: 1em;
+  }
+}

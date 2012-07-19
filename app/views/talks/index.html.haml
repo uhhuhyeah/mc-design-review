@@ -9,7 +9,7 @@
   = render 'pagination_links'
 
   - @talks.group_by(&:date).each do |date, talks|
-    %h1
+    %h2
       = pluralize(talks.count, 'Talk')
       - if date
         for
@@ -21,6 +21,6 @@
   = render 'pagination_links'
  
 .span4
-  %p
-    = link_to 'Submit a Talk', new_talk_path, class: 'btn btn-primary btn-large'
+  %p.right-text
+    = link_to 'Submit a Talk', new_talk_path, class: 'btn btn-primary btn-large', style: 'font-size:20px;'
 

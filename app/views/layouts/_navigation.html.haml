@@ -1,8 +1,10 @@
 = link_to "Design Reviews", root_path, :class => 'brand'
 %ul.nav
   - if user_signed_in?
-    %li{class: ('active' if controller.controller_name == 'talks')}
-      = link_to 'Talks', talks_path
+    %li{class: ('active' if controller.controller_name == 'talks' && %w(new edit).include?(controller.action_name))}
+      = link_to 'Submit a Talk', new_talk_path
+    %li{class: ('active' if controller.controller_name == 'talks' && %w(index show).include?(controller.action_name))}
+      = link_to 'View Talks', talks_path
 
     %li
       = link_to('Sign out', destroy_user_session_path, :method=>'delete')
