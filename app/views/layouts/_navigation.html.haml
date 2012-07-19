@@ -9,7 +9,7 @@
   - else
     %li
       - if Rails.env.production?
-        = link_to('Sign in', new_user_session_path(:yammer))
+        = link_to('Sign in', '/users/auth/yammer')
       - else
         = link_to('Sign in', new_user_session_path)
 
