@@ -15,6 +15,10 @@ input, textarea { width: auto; }
     width: 40%;
   }
 }
+h1 {
+  font-size:40px;
+  line-height: 150%;
+}
 @import "bootstrap-responsive";
 #container-fluid {
   max-width:960px; 
