@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     talk.attendees.include?(self)
   end
 
+  def image
+    image_url || 'http://placekitten.com/'
+  end
+
   def self.find_for_oauth(auth_hash, signed_in_request=nil)
     data = auth_hash.info
     if user = User.where(email: data["email"]).first
