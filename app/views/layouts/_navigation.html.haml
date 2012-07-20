@@ -5,13 +5,14 @@
       = link_to 'Submit a Talk', new_talk_path
     %li{class: ('active' if controller.controller_name == 'talks' && %w(index show).include?(controller.action_name))}
       = link_to 'View Talks', talks_path
-
+    %li
+      = link_to 'Edit Profile', edit_registration_path(current_user)
     %li
       = link_to('Sign out', destroy_user_session_path, :method=>'delete')
   - else
     %li
       - if Rails.env.production?
-        = link_to('Sign in', '/users/auth/yammer')
+        = link_to('Sign in', '/users/auth/google')
       - else
         = link_to('Sign in', new_user_session_path)
 

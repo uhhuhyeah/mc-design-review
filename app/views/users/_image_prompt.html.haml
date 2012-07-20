@@ -1,0 +1,6 @@
+- if current_user && current_user.image_url.blank?
+  .alert.alert-info
+    %a.close{"data-dismiss" => "alert"} ×
+    .center-text
+      %p Add a photo to your profile so people recognize you.
+      = link_to 'Ok, good idea!', edit_registration_path(current_user), class: 'btn btn-success'
