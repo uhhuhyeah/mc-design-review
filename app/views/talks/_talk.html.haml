@@ -56,6 +56,7 @@
 
     - if current_user == talk.presenter
       .details.right-text
+        = link_to 'Post to RubyDev', post_to_ruby_dev(talk), class: 'btn'
         = link_to 'Edit Talk', edit_talk_path(talk)
         |
         = link_to 'Destroy Talk', talk, :confirm => 'Are you sure?', :method => :delete
