@@ -29,7 +29,7 @@
       = simple_format talk.description
       - if talk.slides_url
         %p
-          = link_to 'View Slides', talk.slides_url
+          = link_to content_tag(:i, '', class:'icon-picture') + ' View Slides'.html_safe, talk.slides_url, class: 'btn'
 
     .details
       %dl
