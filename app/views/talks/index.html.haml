@@ -1,12 +1,18 @@
 .span8
-  - if params[:scope] && params[:scope] == 'all'
+  - if talks_scope == 'All'
     %h1 All Talks
-  - elsif params[:scope] && params[:scope] == 'tbc'
+  - elsif talks_scope == 'To Be Decided'
     %h1 Unscheduled Talks
   - else
     %h1 Recent Talks
 
   = render 'pagination_links'
+
+  - if @talks.empty?
+    %h2 
+      No Talks scheduled for dates &middot;  
+      %span{style: 'font-weight:normal;color:#666'}
+        = talks_scope
 
   - @talks.group_by(&:date).each do |date, talks|
     %h2
@@ -18,7 +24,7 @@
         still to be scheduled
     = render talks
 
-  = render 'pagination_links'
+  = render 'pagination_links' unless @talks.empty?
  
 .span4
   %p.right-text

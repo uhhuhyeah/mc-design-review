@@ -45,4 +45,14 @@ module TalksHelper
     "mailto:#{to}?subject=#{subject}&body=#{body}"
   end
 
+  def talks_scope
+    case params[:scope]
+    when 'all'
+      'All'
+    when 'tbc'
+      'To Be Decided'
+    else
+      'Recent'
+    end
+  end
 end
