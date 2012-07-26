@@ -49,7 +49,7 @@ module TalksHelper
     case params[:scope]
     when 'all'
       'All'
-    when 'tbc'
+    when 'tbd'
       'To Be Decided'
     else
       'Recent'

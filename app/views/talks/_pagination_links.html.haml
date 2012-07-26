@@ -1,11 +1,11 @@
 .pagination-links
-  - if params[:scope] && params[:scope] == 'all'
+  - if talks_scope == 'All'
     = link_to 'See Recent Talks', talks_path, class: 'btn btn-inverse'
-    = link_to 'See Unscheduled Talks', talks_path(scope: :tbc), class: 'btn btn-inverse'
+    = link_to 'See Unscheduled Talks', talks_path(scope: :tbd), class: 'btn btn-inverse'
     = will_paginate @talks 
-  - elsif params[:scope] && params[:scope] == 'tbc'
+  - elsif talks_scope == 'To Be Decided'
     = link_to 'See Recent Talks', talks_path, class: 'btn btn-inverse'
     = link_to 'See All Talks', talks_path(scope: :all), class: 'btn btn-inverse'
   - else
     = link_to 'See All Talks', talks_path(scope: :all), class: 'btn btn-inverse'
-    = link_to 'See Unscheduled Talks', talks_path(scope: :tbc), class: 'btn btn-inverse'
+    = link_to 'See Unscheduled Talks', talks_path(scope: :tbd), class: 'btn btn-inverse'
