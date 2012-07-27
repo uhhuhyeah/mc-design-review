@@ -12,6 +12,6 @@ class Talk < ActiveRecord::Base
   validates :attend, presence: true
   validates :expect, presence: true
 
-  scope :recent, Proc.new { where('date >= ? AND date <= ?', 1.week.ago.to_date, 3.weeks.from_now.to_date).group( Talk.column_names.collect{ |col| "talks.#{col}"}) }
+  scope :recent, Proc.new { where('date >= ? AND date <= ?', 1.week.ago.to_date, 3.weeks.from_now.to_date).group( Talk.column_names.collect{ |col| "talks.#{col}"}).order('date asc') }
   scope :tbd, where('date is null')
 end
