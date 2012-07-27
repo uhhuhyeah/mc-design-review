@@ -22,7 +22,7 @@ gem "simple_form"
 gem "will_paginate", ">= 3.0.3"
 
 group :development, :test do
-  gem 'thin'
+  # gem 'thin'
   gem "rspec-rails", ">= 2.11.0"
   gem "factory_girl_rails", ">= 3.5.0"
   gem "email_spec", ">= 1.2.1"
