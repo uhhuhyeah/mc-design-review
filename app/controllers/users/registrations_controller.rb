@@ -11,7 +11,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-    super
+    @user = User.find(current_user.id)
+    if @user.update_without_password(params[:user)
+      redirect_to root_path, notice: 'Profile successfully updated'
+    else
+      render :edit
+    end
   end
 
   def delete
