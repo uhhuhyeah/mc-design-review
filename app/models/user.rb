@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def image
-    image_url || 'http://placekitten.com/'
+    image_url || 'http://placekitten.com/100/100'
   end
 
   def self.find_for_oauth(auth_hash, signed_in_request=nil)
