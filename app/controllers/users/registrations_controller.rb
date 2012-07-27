@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update
     @user = User.find(current_user.id)
-    if @user.update_without_password(params[:user)
+    if @user.update_without_password(params[:user])
       redirect_to root_path, notice: 'Profile successfully updated'
     else
       render :edit
