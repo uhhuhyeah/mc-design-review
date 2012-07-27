@@ -21,8 +21,9 @@ gem "bootstrap-sass", ">= 2.0.4.0"
 gem "simple_form"
 gem "will_paginate", ">= 3.0.3"
 
+gem 'thin'
+
 group :development, :test do
-  # gem 'thin'
   gem "rspec-rails", ">= 2.11.0"
   gem "factory_girl_rails", ">= 3.5.0"
   gem "email_spec", ">= 1.2.1"
