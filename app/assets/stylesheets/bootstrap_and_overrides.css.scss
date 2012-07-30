@@ -19,6 +19,13 @@ h1 {
   font-size:40px;
   line-height: 150%;
 }
+.hero-unit h1 {
+  text-shadow: 0 1px 1px #fff;
+}
+nav {
+  text-shadow: 0 -1px 1px #000;
+}
+
 @import "bootstrap-responsive";
 #container-fluid {
   max-width:960px; 
