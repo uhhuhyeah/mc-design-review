@@ -1,1 +1,5 @@
-= image_tag attendee.image, alt: attendee.name, class: 'attendee-image'
+.attendee
+  = image_tag attendee.image, alt: attendee.name
+  .meta
+    %p
+      = attendee.first_name

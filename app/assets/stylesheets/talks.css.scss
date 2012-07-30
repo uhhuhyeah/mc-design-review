@@ -53,10 +53,24 @@ h3.title {
     line-height: 150%;
     text-shadow: 0 1px 1px #fff;
   }
-  .attendee-image {
-    width: 4em;
+  .attendee{
+    width: 5.5em;
     margin: 0.5em 0;
     float: left;
+    position: relative;
+    .meta {
+      position: absolute;
+      width: 100%;
+      bottom: -1px;
+      padding: 0.5em 0;
+      background: rgba(255,255,255,.8);
+      p {
+        text-align: center;
+        margin: 0;
+        font-size: 90%;
+        line-height: 120%;
+      }
+    }
   }
 }
 .details.date {
