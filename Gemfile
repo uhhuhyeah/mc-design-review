@@ -20,7 +20,7 @@ gem "rolify", ">= 3.1.0"
 gem "bootstrap-sass", ">= 2.0.4.0"
 gem "simple_form"
 gem "will_paginate", ">= 3.0.3"
-
+gem 'newrelic_rpm'
 gem 'thin'
 
 group :development, :test do
