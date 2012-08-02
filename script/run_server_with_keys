@@ -1,5 +1,5 @@
 #! /bin/bash
 
-./script/export_env_keys
+# ./script/export_env_keys # Uncomment this if you've put yammer keys in script/export_env_keys
 bundle exec rails server thin
 

@@ -1,0 +1,6 @@
+#! /bin/bash
+echo "Setting env keys"
+
+export YAMMER_KEY=REPLACE_WITH_YOUR_KEY
+export YAMMER_SECRET=REPLACE_WITH_YOUR_SECRET
+
