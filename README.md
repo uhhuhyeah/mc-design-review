@@ -18,9 +18,7 @@
 
 * Help ensure that Design Reviews continue to be useful, productive and fun
 
-* <strike>Help break admin out of e-comm<strike>
-
-But essentially this is just an experiment. Think of it as a hack day that took place on my train ride home.
+But essentially this is just an experiment. Think of it as a hack day that took place on my train ride home. Lets try and figure out what we want it to be.
 
 # Contributing
 
@@ -34,14 +32,24 @@ But essentially this is just an experiment. Think of it as a hack day that took 
 
 5. This codebase lives in a public github repo and is deployed to the public internet. Please don't include any sensitive company information in the codebase.
 
-Suggestions:
+### Suggestions:
 
 * Integrate with Yammer (authentication, pull profile image, post to Yammer engineering group) - I have an app and some keys for this, please ping me.
 
-* A better way to get an overview of the upcoming talks (more talks with less detail)
+* A better way to get an overview of the upcoming talks (view more talks with less detail)
 
-* \*cough cough\* tests \*cough cough\*
+* <strong>\*cough cough\*</strong> tests <strong>\*cough cough\*</strong>
 
 * Get app off of heroku
 
 * Consistent height of profile pics
+
+## Contact
+
+* Come find me
+
+* Email [David/Uh Huh Yeah](mailto:d.mcclain@modcloth.com) (davidamcclain on skype)
+
+* Open a [github issue](https://github.com/uhhuhyeah/mc-design-review/issues/new)
+
+
