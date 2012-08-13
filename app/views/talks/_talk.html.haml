@@ -3,18 +3,27 @@
     .clearfix
       = render partial: 'profile_box', locals: { profile: talk.presenter }
       = render partial: 'profile_box', locals: { profile: talk.co_presenter } if talk.co_presenter
-    .details.attendees
-      %dl
-        %dt Attendees
-        %dd
-          - if talk.attendees.count > 0
-            %p{style: 'margin:0;'}
-              = pluralize(talk.attendees.count, 'person') 
-              will be attending
-            .clearfix
-              = render partial: 'attendee', collection: talk.attendees
-          - else
-            %p{style: 'margin:0'} No attendees yet
+    - if current_user != talk.presenter || current_user != talk.co_presenter
+      .details.attendance
+        - if current_user.is_attending?(talk)
+          = link_to "I won't be attending", attendance_path(1, talk_id: talk.id), data: {method: :delete}, class: 'btn btn-danger'
+        - else
+          - btxt = talk.attendees.count > 0 ? 'I plan on attending' : 'Be the first to sign up'
+          = link_to btxt, attendances_path(talk_id: talk.id), data: {method: :post}, class: 'btn btn-success'
+      .details.attendees
+        %dl
+          %dt Attendees
+          %dd
+            - if talk.attendees.count > 0
+              %p{style: 'margin:0;'}
+                = pluralize(talk.attendees.count, 'person') 
+                will be attending
+              .clearfix
+                %p
+                  = talk.attendees.collect(&:first_name).sort.join(' | ')
+            - else
+              %p{style: 'margin:0'} No attendees yet
+
   .span6
     %h3.title
       = talk.title
@@ -44,14 +53,6 @@
         %dt What should we do to prepare for this talk?
         %dd 
           = talk.prepare
-
-    .details
-      .right-text
-        - if current_user.is_attending?(talk)
-          = link_to "I won't be attending", attendance_path(1, talk_id: talk.id), data: {method: :delete}, class: 'btn btn-danger'
-        - elsif current_user != talk.presenter 
-          - btxt = talk.attendees.count > 0 ? 'I plan on attending' : 'Be the first to sign up'
-          = link_to btxt, attendances_path(talk_id: talk.id), data: {method: :post}, class: 'btn btn-success'
 
 
     - if current_user == talk.presenter
