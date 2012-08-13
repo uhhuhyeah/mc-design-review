@@ -57,6 +57,13 @@ h3.title {
   -moz-border-radius: 3px;
   border-radius: 3px;
 
+  p.list {
+    line-height: 120%;
+    span {
+      color: #ccc;
+    }
+  }
+
   dt {
     font-size: 150%;
     line-height: 150%;

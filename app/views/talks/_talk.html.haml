@@ -19,8 +19,14 @@
                 = pluralize(talk.attendees.count, 'person') 
                 will be attending
               .clearfix
-                %p
-                  = talk.attendees.collect(&:first_name).sort.join(' | ')
+              %p.list
+                - attendees = talk.attendees.collect(&:first_name).sort
+                - attendees.each do |attendee|
+                  %strong
+                    = attendee
+                  - unless attendee == attendees.last
+                    %span
+                      |
             - else
               %p{style: 'margin:0'} No attendees yet
 
