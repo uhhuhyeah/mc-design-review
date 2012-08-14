@@ -2,10 +2,17 @@
   - if talks_scope == 'All'
     = link_to 'See Recent Talks', talks_path, class: 'btn btn-inverse'
     = link_to 'See Unscheduled Talks', talks_path(scope: :tbd), class: 'btn btn-inverse'
+    = link_to 'See My Talks', talks_path(scope: :mine), class: 'btn btn-success'
     = will_paginate @talks 
   - elsif talks_scope == 'To Be Decided'
     = link_to 'See Recent Talks', talks_path, class: 'btn btn-inverse'
     = link_to 'See All Talks', talks_path(scope: :all), class: 'btn btn-inverse'
+    = link_to 'See My Talks', talks_path(scope: :mine), class: 'btn btn-success'
+  - elsif talks_scope == 'My Talks'
+    = link_to 'See Recent Talks', talks_path, class: 'btn btn-inverse'
+    = link_to 'See Unscheduled Talks', talks_path(scope: :tbd), class: 'btn btn-inverse'
+    = link_to 'See All Talks', talks_path(scope: :all), class: 'btn btn-inverse'
   - else
     = link_to 'See All Talks', talks_path(scope: :all), class: 'btn btn-inverse'
     = link_to 'See Unscheduled Talks', talks_path(scope: :tbd), class: 'btn btn-inverse'
+    = link_to 'See My Talks', talks_path(scope: :mine), class: 'btn btn-success'

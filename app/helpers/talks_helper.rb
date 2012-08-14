@@ -51,6 +51,8 @@ module TalksHelper
       'All'
     when 'tbd'
       'To Be Decided'
+    when 'mine'
+      'My Talks'
     else
       'Recent'
     end

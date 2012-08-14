@@ -7,6 +7,8 @@ class TalksController < ApplicationController
       Talk.paginate(:page => params[:page], :per_page => 10)
     elsif params[:scope] == 'tbd'
       Talk.tbd
+    elsif params[:scope] == 'mine'
+      current_user.talks
     else
       Talk.recent
     end
