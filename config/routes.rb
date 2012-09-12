@@ -12,5 +12,9 @@ DesignReview::Application.routes.draw do
   resources :users, :only => [:show, :index]
   resources :talks
   resources :attendances, only: [:create, :destroy]
+  
+  namespace :admin do
+    resources :chairs
+  end
 
 end

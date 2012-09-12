@@ -1,0 +1,32 @@
+<div style="background:#fff;padding:1em;margin:1em;border-radius:4px;border:1px solid #ddd;">
+	<h1 class="title">Chairs</h1>
+
+	<%- if @chair -%>
+		<h2>Current Chair: <span><%= @chair.user.name %> (as of <%= @chair.created_at %>)</h3>
+	<%- else -%>
+		<h2>No Current Chair</h2>
+	<%- end %>
+
+	<h3>Users</h3>
+	<table class="table table-hover table-bordered">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>Name</th>
+				<th>Chair</th>
+			</tr>
+		<thead>
+		<tbody>
+			<%- @users.each do |user| %>
+			<tr class="<%= 'success' if user == @chair %>">
+				<td><%= user.id %></td>
+				<td><%= user.name %></td>
+				<td>
+					TBD
+					<%= link_to 'New Chair', "/admin/chairs?user_id=#{user.id}", method: :post, class: 'btn btn-primary' %>
+				</td>
+			</tr>
+			<%- end -%>
+		</tbody>
+	</table>
+</div>
