@@ -2,3 +2,14 @@
   %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
     %a.close{"data-dismiss" => "alert"} ×
     = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+
+- if chairperson
+  .alert.alert-info
+    .center-text
+      %h4 
+        %span{:style => 'opacity:0.5'}
+          Current chairperson:
+      %h3
+        %span{:style => 'color:#5BB65B' }
+          = chairperson.user.name
+ 
