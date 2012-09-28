@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120912204656) do
+ActiveRecord::Schema.define(:version => 20120928162802) do
 
   create_table "chairs", :force => true do |t|
     t.integer  "user_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20120912204656) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "slides_url"
+    t.string   "blog_post_url"
   end
 
   add_index "talks", ["date"], :name => "index_talks_on_date"
