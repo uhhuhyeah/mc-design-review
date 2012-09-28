@@ -3,7 +3,7 @@ module ApplicationHelper
 
   def date_format(time)
     return unless time
-    parts = ['Thursday']
+    parts = ['Friday']
     parts << ordinalize(time.strftime('%d').to_i)
     parts << time.strftime('%B')
     parts.join(' ')

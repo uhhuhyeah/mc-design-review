@@ -9,7 +9,7 @@
       %p
         = f.association :co_presenter, label: 'Co-Presenter (if any)', collection: User.where('id != ?', current_user.id).collect {|u| ["#{u.name} (#{u.email})", u.id]}
       %p
-        = f.input :date, collection: upcoming_thursdays
+        = f.input :date, collection: upcoming_fridays
       %p
         = f.input :length, label: 'Length (Minutes)'
       %p
