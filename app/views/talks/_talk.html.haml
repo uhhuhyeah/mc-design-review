@@ -61,6 +61,12 @@
         %dd 
           = talk.prepare
 
+        %dt How long is your talk?
+        %dd 
+          \~
+          = talk.length
+          mins
+
 
     - if current_user == talk.presenter
       .details.right-text
