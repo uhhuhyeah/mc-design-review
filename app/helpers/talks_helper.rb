@@ -1,5 +1,27 @@
 module TalksHelper
 
+  def blog_post_link(url, disabled=false)
+    button_link_helper(:blog, url, disabled) 
+  end
+
+  def slides_link(url, disabled=false)
+   button_link_helper(:slides, url, disabled) 
+  end
+
+  def button_link_helper(type, url, disabled)
+    icon_class, thing = case type
+      when :blog
+        ['icon-file', 'Blog Post']
+      when :slides
+        ['icon-picture', 'Slides']
+      end
+    
+    btn_class = ['btn']
+    btn_class << 'disabled' if disabled
+
+    link_to content_tag(:i, '', class: icon_class) + " View #{thing}".html_safe, url, class: btn_class.join(' ')
+  end
+
   def upcoming_fridays
     array_for_options = []
     (Time.now.to_date..6.weeks.from_now.to_date).each do |date|

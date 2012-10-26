@@ -42,12 +42,10 @@
     .clearfix
     .details
       = simple_format talk.description
-      - if talk.slides_url
-        %p
-          = link_to content_tag(:i, '', class:'icon-picture') + ' View Slides'.html_safe, talk.slides_url, class: 'btn'
-      - if talk.blog_post_url
-        %p
-          = link_to content_tag(:i, '', class:'icon-file') + ' View Blog Post'.html_safe, talk.blog_post_url, class: 'btn'
+      %p
+        = slides_link(talk.slides_url, talk.slides_url.blank?)
+      %p
+        = blog_post_link(talk.blog_post_url, talk.blog_post_url.blank?)
 
     .details
       %dl
