@@ -21,8 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def image
-    # image_url || 'http://placekitten.com/100/100'
-    'http://placekitten.com/100/100'
+    image_url.present? ? image_url : 'http://placekitten.com/100/100'
   end
 
   def first_name
