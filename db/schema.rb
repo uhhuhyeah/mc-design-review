@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20120928162802) do
     t.string   "blog_post_url"
   end
 
+  add_index "talks", ["co_presenter_id"], :name => "index_talks_on_co_presenter_id"
   add_index "talks", ["date"], :name => "index_talks_on_date"
   add_index "talks", ["user_id"], :name => "index_talks_on_user_id"
 
